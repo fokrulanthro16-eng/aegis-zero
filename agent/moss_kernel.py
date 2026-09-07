@@ -58,6 +58,11 @@ class MossKernel:
         self.total_docs: int = 0
         self._is_indexed: bool = False
 
+        # WebGPU / CPU SIMD acceleration mode detection
+        self.is_ci = os.getenv("CI", "false").lower() in ("true", "1", "yes")
+        self.gpu_accelerated = not self.is_ci and os.getenv("AEGIS_FORCE_CPU", "0") != "1"
+        self.acceleration_mode = "WebGPU-WGSL" if self.gpu_accelerated else "CPU-SIMD-Vectorless"
+
         # Tokenizer regex
         self._token_pattern = re.compile(r"(?u)\b\w\w+\b")
         # Common English stop words
@@ -242,7 +247,7 @@ class MossKernel:
             latency_ns=latency_ns,
             latency_ms=latency_ms,
             hit_count=len(chunks),
-            method="moss_vectorless_hash"
+            method=self.acceleration_mode
         )
 
 

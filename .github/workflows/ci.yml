@@ -1,4 +1,4 @@
-﻿name: AegisZero Sovereign Edge CI
+name: AegisZero Sovereign Edge CI
 
 on:
   push:
@@ -10,6 +10,9 @@ jobs:
   build-and-test:
     name: Benchmark & AST Interlock Verification
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: .
+      CI: "true"
 
     steps:
       - name: Checkout Repository
@@ -21,16 +24,16 @@ jobs:
           python-version: "3.11"
           cache: "pip"
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Benchmark Suite (1,000 iterations)
+      - name: Run Benchmark & AST Verification Suite
         run: |
           python tests/benchmark_suite.py
 
       - name: Verify Benchmark Audit Artifact
         run: |
           test -f benchmark_results.json
-          python -c "import json; data=json.load(open('benchmark_results.json')); assert data['engine_resolution_us']['p50'] < 1000, 'Sub-ms retrieval requirement violated!'"
+          python -c "import json; data=json.load(open('benchmark_results.json')); assert data.get('total_engine_resolution_us', data.get('engine_resolution_us'))['p50'] < 1000, 'Sub-ms retrieval requirement violated!'"

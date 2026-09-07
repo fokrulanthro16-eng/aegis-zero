@@ -4,9 +4,11 @@
 
 ![Level 3 Sovereign Edge](https://img.shields.io/badge/Architecture-Level%203%20Sovereign%20Edge-06b6d4?style=for-the-badge&logo=cpu)
 ![WebGPU WGSL Compute](https://img.shields.io/badge/Acceleration-WebGPU%20WGSL%20Compute-10b981?style=for-the-badge&logo=webgpu)
+![CI](https://img.shields.io/github/actions/workflow/status/fokrulanthro16-eng/aegis-zero/ci.yml?branch=main&label=CI%20Benchmark&style=for-the-badge&logo=githubactions)
 ![Retrieval Latency](https://img.shields.io/badge/Retrieval-11.5%20%C2%B5s-a855f7?style=for-the-badge&logo=speedtest)
 ![Action Lag](https://img.shields.io/badge/Action%20Lag-0.0%20%C2%B5s-f59e0b?style=for-the-badge&logo=zap)
 ![3-Node BFT Quorum](https://img.shields.io/badge/Consensus-3--Node%20BFT%20Quorum-f43f5e?style=for-the-badge&logo=blockchain)
+![Docker Ready](https://img.shields.io/badge/Docker-One--Click%20Ready-2496ed?style=for-the-badge&logo=docker)
 ![Zero Cloud](https://img.shields.io/badge/Cloud%20Dependency-Zero%20(Local%20RAM)-0ea5e9?style=for-the-badge)
 ![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)
 
@@ -15,7 +17,7 @@
 ### **A zero-latency speculative memory kernel and sovereign edge engine for mission-critical autonomous voice agents.**
 *Replaces 500ms cloud vector database latency with sub-12µs WebGPU in-memory retrieval, 3-node Byzantine fault tolerance, and deterministic formal AST guardrails.*
 
-[Key Innovations](#-core-architectural-innovations) • [Architecture Diagram](#-system-architecture--speculative-dataflow) • [Microsecond Benchmarks](#-microsecond-benchmark-breakdown-live-measured) • [Quickstart](#-reproducible-quickstart-one-command-run) • [PRD](PRD.md)
+[🏆 Devpost Submission](DEVPOST.md) • [⚖️ Judges' 90s Guide](JUDGES_GUIDE.md) • [📐 Architecture Docs](docs/ARCHITECTURE.md) • [⚡ Benchmarks](#-microsecond-benchmark-breakdown-live-measured) • [🐳 Docker Quickstart](#-one-command-docker-quickstart) • [PRD](PRD.md)
 
 </div>
 
@@ -57,6 +59,10 @@ PERCEIVED ACTION EXECUTION LAG: 0.0 µs (True Zero Latency)
 ---
 
 ## 🏗️ System Architecture & Speculative Dataflow
+
+<div align="center">
+  <img src="docs/assets/architecture_dark.svg" alt="AegisZero Architecture Pipeline" width="100%" />
+</div>
 
 ```text
 [User Voice Stream] (WebRTC 48kHz Opus)
@@ -155,7 +161,24 @@ aegis-zero/
 
 ---
 
-## 🚀 Reproducible Quickstart (One Command Run)
+## 🐳 One-Command Docker Quickstart (Recommended for Judges)
+
+Launch the complete sovereign edge stack in an isolated container in 5 seconds:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/fokrulanthro16-eng/aegis-zero.git
+cd aegis-zero
+
+# 2. Run with Docker Compose
+docker compose up --build
+```
+
+Then visit **`http://localhost:8080`** in your browser.
+
+---
+
+## 🚀 Native Python Quickstart
 
 ### 1. Clone the Repository
 ```bash

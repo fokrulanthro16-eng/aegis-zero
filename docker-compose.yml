@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  aegis-zero:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aegis-zero:latest
+    container_name: aegis_zero_kernel
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - TELEMETRY_PORT=8080
+      - TELEMETRY_HOST=0.0.0.0
+      - MOSS_LATENCY_BUDGET_MS=10.0
+      - GUARDRAIL_LATENCY_BUDGET_MS=6.0
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./agent/mock_kb:/app/agent/mock_kb:ro
+      - ./web:/app/web:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+        reservations:
+          cpus: '0.5'
+          memory: 512M

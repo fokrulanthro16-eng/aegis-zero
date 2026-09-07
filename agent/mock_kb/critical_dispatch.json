@@ -1,0 +1,62 @@
+[
+  {
+    "id": "DISPATCH-SEC-01",
+    "title": "Nuclear Reactor Secondary Coolant Loop Overpressure",
+    "category": "Nuclear Facility Emergency",
+    "keywords": ["nuclear", "coolant", "overpressure", "reactor", "pressure relief", "scram", "radiation", "loop b"],
+    "trigger_phrases": ["reactor pressure spike", "coolant leak detected", "valve b4 jammed", "high pressure alert"],
+    "content": "CRITICAL EMERGENCY PROCEDURE 404-N: In the event of secondary coolant loop overpressure exceeding 2,250 PSI, immediately initiate Venturi bleed valve override on Loop B. Cross-connect emergency feedwater supply pump EFP-2. If pressure does not normalize within 45 seconds, execute manual SCRAM sequence on Sector 3 control rods. Personnel evacuation code DELTA is authorized.",
+    "authorized_tools": ["open_bleed_valve", "activate_efp_pump", "execute_manual_scram"],
+    "safety_constraints": "Never bypass thermal interlock without Level-4 cryptographic clearance. Prohibit automated rod withdrawal during pressure anomaly."
+  },
+  {
+    "id": "DISPATCH-SEC-02",
+    "title": "Bio-Chemical Containment Level 4 Atmospheric Breach",
+    "category": "Hazmat Incident Response",
+    "keywords": ["hazmat", "chemical", "containment", "airlock", "decontamination", "chlorine", "pathogen", "seal breach"],
+    "trigger_phrases": ["chemical spill", "airlock seal breach", "toxic vapor leak", "evacuate cleanroom"],
+    "content": "BIO-HAZMAT PROTOCOL BSL-4: Atmospheric pressure differential failure in Sector 7 requires immediate electromagnetic door seal interlock engagement. Activate negative pressure scrubbing scrubbers. Disperse catalytic neutralizer aerosol agent NEUT-88. All personnel must verify Level A encapsulated suit pressure integrity before entering staging corridor.",
+    "authorized_tools": ["lock_electromagnetic_seals", "engage_air_scrubbers", "deploy_aerosol_neutralizer"],
+    "safety_constraints": "Override of airlock door mechanisms during active pathogen release is strictly forbidden regardless of operator credentials."
+  },
+  {
+    "id": "DISPATCH-SEC-03",
+    "title": "Autonomous Drone Fleet Mid-Air Airspace Deconfliction",
+    "category": "Aerospace Operations",
+    "keywords": ["drone", "airspace", "collision", "flight corridor", "deconfliction", "evasive maneuver", "geofence", "waypoint"],
+    "trigger_phrases": ["drone collision alert", "unauthorized aircraft in corridor", "divert fleet", "emergency landing"],
+    "content": "AIRSPACE SAFETY DIRECTIVE 902: Upon detection of non-cooperative aircraft within 500 meters of logistics flight vector corridor ALPHA, command immediate 50-meter vertical altitude offset. Transmit TCAS emergency squawk 7700. If telemetry packet loss exceeds 200ms, switch autonomous fleet to decentralized optical flow avoidance protocol and rendezvous at emergency geofenced LZ-4.",
+    "authorized_tools": ["reassign_flight_corridor", "transmit_tcas_squawk", "trigger_emergency_lz_landing"],
+    "safety_constraints": "Under no circumstances allow flight path vectors through civilian no-fly zones or commercial landing paths."
+  },
+  {
+    "id": "DISPATCH-SEC-04",
+    "title": "Metropolitan Power Grid Transmission Line Cascading Trip",
+    "category": "Critical Infrastructure",
+    "keywords": ["grid", "transmission", "substation", "blackout", "islanding", "megawatt", "frequency drop", "busbar"],
+    "trigger_phrases": ["frequency dropping below 59.5", "transformer overload", "cascade blackout", "shed load"],
+    "content": "GRID STABILITY DIRECTIVE GRID-88: Rapid system frequency decay below 59.8 Hz indicates severe generation loss. Trigger instantaneous under-frequency load shedding (UFLS) on Industrial Feeders 12 through 18. Spin up Hydro Reservoir Unit 4 within 12 seconds. Form microgrid island for District Medical Centers Alpha and Bravo.",
+    "authorized_tools": ["trigger_load_shedding", "spin_up_hydro_reserve", "isolate_microgrid_island"],
+    "safety_constraints": "Never shed hospital, fire dispatch, or military defense sector feeders during load balancing procedures."
+  },
+  {
+    "id": "DISPATCH-SEC-05",
+    "title": "Mass Casualty Incident Trauma Triage Protocol",
+    "category": "Emergency Medical Dispatch",
+    "keywords": ["triage", "trauma", "casualty", "tourniquet", "hemorrhage", "paramedic", "airway", "shock"],
+    "trigger_phrases": ["mass casualty incident", "arterial bleeding", "multiple victims", "triage classification"],
+    "content": "START TRIAGE PROTOCOL (Simple Triage and Rapid Treatment): Assess victim breathing, perfusion, and mental status. For severe arterial bleeding, apply immediate combat application tourniquet (CAT) high and tight, log time on forehead. Classify Red (Immediate), Yellow (Delayed), Green (Minor), Black (Expectant). Route medevac units to designated triage triage zone Bravo.",
+    "authorized_tools": ["dispatch_medevac_heli", "alert_regional_trauma_centers", "log_triage_classification"],
+    "safety_constraints": "Ensure scene safety verification prior to deploying civilian paramedic units into warm hazard zones."
+  },
+  {
+    "id": "DISPATCH-SEC-06",
+    "title": "Cyber-Physical ICS Water Treatment System Infiltration",
+    "category": "Industrial Cybersecurity",
+    "keywords": ["cyber", "scada", "water treatment", "plc", "modbus", "override", "chlorination", "isolation"],
+    "trigger_phrases": ["unauthorized plc command", "chemical doser manipulation", "scada breach", "isolate water pump"],
+    "content": "OT SECURITY EMERGENCY PROCEDURE ICS-12: Anomalous setpoint modifications detected on sodium hypochlorite chlorination dosers. Physically air-gap SCADA Gateway 4. Switch chemical metering pumps to manual analog fail-safe mode. Flush holding tank 3 to overflow containment retention basin. Notify CISA and water authority incident response team.",
+    "authorized_tools": ["airgap_scada_gateway", "switch_manual_pumps", "dump_containment_basin"],
+    "safety_constraints": "Do not permit remote digital modifications while network integrity is compromised. All overrides require physical manual hand-wheel actuation."
+  }
+]

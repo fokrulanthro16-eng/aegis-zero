@@ -1,0 +1,19 @@
+# AegisZero: Zero-Latency Speculative Guardrail & In-Stream Memory Kernel
+# Pinned dependencies for YC Fall 2026 x Moss Sprint
+
+livekit>=0.18.2
+livekit-agents>=0.12.1
+livekit-plugins-groq>=0.2.0
+livekit-plugins-deepgram>=0.7.0
+livekit-plugins-cartesia>=0.4.0
+
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+numpy>=1.26.4
+pydantic>=2.7.4
+python-dotenv>=1.0.1
+websockets>=12.0
+orjson>=3.10.3
+colorama>=0.4.6
+rich>=13.7.1
+aiohttp>=3.9.5
